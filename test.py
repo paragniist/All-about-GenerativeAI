@@ -1,0 +1,1 @@
+print(20*"Hello Welcome to Gen AI Course")

@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+# to add constraints to the request data, we can use pydantic's Field function.
 from openai import OpenAI
 import os
 
@@ -11,7 +12,7 @@ client = OpenAI(
 )
 
 class RequestData(BaseModel):
-    prompt: str
+    prompt: str 
 
 @app.post("/ask")
 async def ask_ai(data: RequestData):
@@ -27,3 +28,5 @@ async def ask_ai(data: RequestData):
     return {
         "reply": response.choices[0].message.content
     }
+
+# User → /ask → FastAPI → Gemini → FastAPI → User

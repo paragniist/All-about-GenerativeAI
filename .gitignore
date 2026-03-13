@@ -1,0 +1,9 @@
+# Python venv
+venv/
+.env/
+gemini/
+__pycache__/
+*.pyc
+genai_env/
+.DS_Store
+.ipynb_checkpoints

@@ -1,3 +1,4 @@
+<<<<<<< HEAD:GenAI/Ses-22-23/requirements.txt
 # PDF Extraction (replaced by pypdfium2 direct — docling still kept as optional)
 docling>=2.0.0
 
@@ -20,3 +21,28 @@ numpy>=1.24.0
 
 # Gradio UI
 gradio>=4.0.0
+=======
+# PDF Extraction (replaced by pypdfium2 direct — docling still kept as optional)
+docling>=2.0.0
+
+# PDF text extraction (primary, no ML pipeline)
+pypdfium2>=4.0.0
+
+# Graph Database
+neo4j>=5.14.0
+
+# Google Gemini AI — NEW SDK (replaces google-generativeai)
+# The old google-generativeai calls v1beta which no longer supports
+# gemini-embedding-001. The new google-genai calls v1 (stable).
+google-genai>=1.0.0
+
+# Environment Variables
+python-dotenv>=1.0.0
+
+# Utilities
+numpy>=1.24.0
+
+# Gradio UI
+gradio>=4.0.0
+PyPDF2
+>>>>>>> c9cd86b (Update):Ses-22-23/requirements.txt

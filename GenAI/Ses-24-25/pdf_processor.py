@@ -1,3 +1,4 @@
+<<<<<<< HEAD:GenAI/Ses-24-25/pdf_processor.py
 """
 PDF processing module using Docling (simplified).
 Handles PDF extraction and chunking without OCR.
@@ -142,4 +143,53 @@ class PDFProcessor:
             "avg_chunk_size": round(avg_chunk_size, 2),
             "min_chunk_size": min(chunk["metadata"]["length"] for chunk in chunks),
             "max_chunk_size": max(chunk["metadata"]["length"] for chunk in chunks)
+=======
+from PyPDF2 import PdfReader
+from pathlib import Path
+from typing import List, Dict, Any
+
+
+class PDFProcessor:
+    def __init__(self, min_chunk_length: int = 50):
+        self.min_chunk_length = min_chunk_length
+        print("📄 Using simple PDF processor (PyPDF2)")
+
+    def extract_chunks(self, pdf_path: str) -> List[Dict[str, Any]]:
+        reader = PdfReader(pdf_path)
+
+        full_text = ""
+        for page in reader.pages:
+            full_text += page.extract_text() + "\n"
+
+        paragraphs = full_text.split("\n\n")
+
+        chunks = []
+        chunk_id = 0
+
+        for para in paragraphs:
+            text = para.strip()
+            if text and len(text) > self.min_chunk_length:
+                chunks.append({
+                    "id": f"{Path(pdf_path).stem}_chunk_{chunk_id}",
+                    "text": text,
+                    "source": Path(pdf_path).name,
+                    "chunk_index": chunk_id,
+                    "metadata": {"length": len(text)}
+                })
+                chunk_id += 1
+
+        print(f"✅ Extracted {len(chunks)} chunks")
+        return chunks
+
+    def get_chunk_statistics(self, chunks):
+        if not chunks:
+            return {"total_chunks": 0, "total_chars": 0, "avg_chunk_size": 0}
+
+        total_chars = sum(c["metadata"]["length"] for c in chunks)
+
+        return {
+            "total_chunks": len(chunks),
+            "total_chars": total_chars,
+            "avg_chunk_size": total_chars / len(chunks)
+>>>>>>> c9cd86b (Update):Ses-24-25/pdf_processor.py
         }

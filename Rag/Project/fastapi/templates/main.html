@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RAG Search Form</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/css/bootstrap.css') }}">
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+    .container-box {
+      max-width: 600px;
+      margin: 80px auto;
+      padding: 35px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    .form-label {
+      font-weight: bold;
+    }
+    .btn-custom {
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container-box">
+  <center><h2 class="text-center mb-4">Upload & Search</h2></center>
+
+  <!-- File Upload Form -->
+  <form action="/AskMe/upload" method="post" enctype="multipart/form-data" class="mb-4">
+    <div class="mb-3">
+      <input type="file" class="form-control" name="file" id="file" required>
+    </div>
+    <button type="submit" class="btn btn-success btn-custom">Upload</button>
+  </form>
+
+  <!-- Search Form -->
+  <form action="/AskMe/search/" method="post">
+    <div class="mb-3">
+      <input type="text" class="form-control" name="query" placeholder="Enter your question..." id="query" required>
+    </div>
+    <button type="submit" class="btn btn-primary btn-custom">Search</button>
+  </form>
+
+   <div id="chatHistory" class="mt-4 mb-4 p-3">
+
+  <!-- Show Query and Answer if available -->
+  {% if query and answer %}
+  <script>
+    // Save latest Q&A to localStorage
+    const chatItem = { 
+      question: "{{ query|e }}", 
+      answer: "{{ answer|e }}"
+    };
+    let chatHistory = JSON.parse(localStorage.getItem("chatHistory")) || [];
+    chatHistory.unshift(chatItem);
+    localStorage.setItem("chatHistory", JSON.stringify(chatHistory));
+  </script>
+  {% endif %}
+
+</div>
+
+
+  <script>
+     window.addEventListener("DOMContentLoaded", () => {
+    const chatHistory = JSON.parse(localStorage.getItem("chatHistory")) || [];
+    const chatContainer = document.getElementById("chatHistory");
+
+    chatHistory.forEach(item => {
+      const qDiv = document.createElement("div");
+      qDiv.classList.add("qa-box", "border", "bg-white");
+      qDiv.innerHTML = `<h5>Question:</h5><p>${item.question}</p>`;
+
+      const aDiv = document.createElement("div");
+      aDiv.classList.add("qa-box", "border", "bg-light", "text-end");
+      aDiv.innerHTML = `<h5>Answer:</h5><p>${item.answer}</p>`;
+
+      chatContainer.appendChild(qDiv);
+      chatContainer.appendChild(aDiv);
+    });
+  });
+  </script>
+
+<script src="{{ url_for('static', path='/js/jquery-slim.js') }}"></script>
+<script src="{{ url_for('static', path='/js/popper.js') }}"></script>
+<script src="{{ url_for('static', path='/js/bootstrap.js') }}"></script>
+<script src="{{ url_for('static', path='/js/base.js') }}" defer></script>
+</body>
+</html>

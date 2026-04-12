@@ -1,0 +1,20 @@
+
+[project]
+name = "RAG"
+version = "0.1.0"
+description = "Integrating Rag program with fastapi"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "crewai>=0.159.0",
+    "fastapi>=0.121.0",
+    "openai>=1.99.9",
+    "python-dotenv>=1.1.1",
+    "requests>=2.32.4",
+    "uvicorn>=0.38.0",
+]
+
+[tool.uv.workspace]
+members = [
+    "WEEK_3",
+]

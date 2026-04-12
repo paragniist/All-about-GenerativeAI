@@ -1,0 +1,104 @@
+# ==========================================
+# MULTI-CONTAINER AI CHAT APPLICATION
+# ==========================================
+# This docker-compose.yml orchestrates a full-stack application with:
+# - PostgreSQL database for data storage
+# - FastAPI backend for API and AI integration
+# - React frontend for user interface
+# Author: Brian Lertor
+
+version: '3.8'
+
+# Run All Services
+services:
+
+  # ==========================================
+  # STEP 1: DATABASE SERVICE (PostgreSQL)
+  # ==========================================
+  # This is our data layer - stores all chat logs and telemetry
+
+  # Run Service
+  postgres:
+    image: postgres:15                 # Use official PostgreSQL v15 image
+    container_name: ai-chat-postgres   # Give container a friendly name
+
+    environment:                      # Set database credentials
+      POSTGRES_DB: ai_chat_db         # Database name
+      POSTGRES_USER: ai_chat_user     # Database username
+      POSTGRES_PASSWORD: ai_chat_password   # Database password
+
+    ports:
+      - "5432:5432"                   # Map container port 5432 to host port 5432
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data   # Persist database data
+
+    healthcheck:                      # Check if database is ready
+      test: ["CMD-SHELL", "pg_isready -U ai_chat_user -d ai_chat_db"]
+      interval: 10s                   # Check every 10 seconds
+      timeout: 5s                     # Timeout after 5 seconds
+      retries: 5                      # Retry 5 times before failing
+
+
+# ==========================================
+# STEP 2: BACKEND SERVICE (FastAPI + Python)
+# ==========================================
+
+# This is our API layer - handles chat requests and AI integration
+
+# Run Service
+backend:
+  build: ./backend                     # Build from local Dockerfile in ./backend
+  container_name: ai-chat-backend     # Give container a friendly name
+
+  ports:
+    - "8000:8000"                     # Map container port 8000 to host port 8000
+
+  environment:                         # Set environment variables
+    - DATABASE_URL=postgresql://ai_chat_user:ai_chat_password@postgres:5432/ai_chat_db
+    - OPENAI_API_KEY=${OPENAI_API_KEY}  # Use API key from .env file
+
+  depends_on:                          # Wait for database to be healthy
+    postgres:
+      condition: service_healthy      # Only start after postgres passes health check
+
+  volumes:
+    - ./backend:/app                  # Mount local code for development hot-reload
+
+  command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload   # Start with auto-reload
+
+
+# ==========================================
+# STEP 3: FRONTEND SERVICE (React + Node.js)
+# ==========================================
+
+# This is our presentation layer - user interface for chat
+
+# Run Service
+frontend:
+  build: ./frontend                   # Build from local Dockerfile in ./frontend
+  container_name: ai-chat-frontend    # Give container a friendly name
+
+  ports:
+    - "3000:3000"                     # Map container port 3000 to host port 3000
+
+  volumes:
+    - ./frontend:/app                 # Mount local code for development hot-reload
+    - /app/node_modules               # Preserve node_modules in container
+
+  environment:
+    - REACT_APP_API_URL=http://localhost:8000   # Tell React where to find API
+
+  depends_on:
+    - backend                         # Wait for backend to start first
+
+
+# ==========================================
+# STEP 4: PERSISTENT DATA STORAGE
+# ==========================================
+
+# Named volumes for data that survives container restarts
+volumes:
+  postgres_data:                      # Database files persist here
+
+  

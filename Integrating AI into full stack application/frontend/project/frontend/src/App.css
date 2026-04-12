@@ -1,0 +1,173 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #f4f6f8;
+}
+
+/* App Layout */
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: #1e293b;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  font-size: 24px;
+}
+
+.sidebar-header h2 {
+  font-size: 20px;
+}
+
+/* Session Info */
+.session-info {
+  margin-top: 20px;
+}
+
+.session-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #334155;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.session-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.session-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.session-id {
+  font-size: 12px;
+  color: #cbd5f5;
+}
+
+/* Navigation */
+.sidebar-nav {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-item {
+  padding: 10px;
+  border: none;
+  background: transparent;
+  color: white;
+  text-align: left;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-item:hover {
+  background: #475569;
+}
+
+.nav-item.active {
+  background: #6366f1;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  background: #f8fafc;
+}
+
+/* About Page */
+.about {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Chat Container */
+.chat-container {
+  background: white;
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Chat Messages */
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+.message {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  max-width: 70%;
+}
+
+.message.user {
+  background: #6366f1;
+  color: white;
+  margin-left: auto;
+}
+
+.message.ai {
+  background: #e2e8f0;
+}
+
+/* Chat Input */
+.chat-input {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.chat-input button {
+  padding: 10px 20px;
+  background: #6366f1;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background: #4f46e5;
+}

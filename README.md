@@ -66,6 +66,7 @@ Learn how to build context-aware AI systems using external knowledge sources.
 - 🧠 Vector Databases (FAISS, Pinecone, etc.)
 - 🐳 Docker
 
-  📈 Learning Path
+
+📈 Learning Path
   
   **Full Stack AI Integration → LangChain → RAG → Advanced GenAI Systems**

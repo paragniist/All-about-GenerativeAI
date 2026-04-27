@@ -1,0 +1,100 @@
+{
+    "questions": [
+        {
+            "question": "How do I restart my computer?",
+            "answer": "To restart your computer, click on the Start menu, select 'Restart,' and wait for the system to reboot."
+        },
+        {
+            "question": "How can I check my internet connection?",
+            "answer": "To check your internet connection, open a web browser and try visiting a website. If it doesn't load, check your network settings."
+        },
+        {
+            "question": "What should I do if my computer is running slow?",
+            "answer": "If your computer is running slow, try closing unnecessary programs and restarting the device. You can also check for software updates."
+        },
+        {
+            "question": "How do I update my operating system?",
+            "answer": "To update your operating system, go to the Settings menu, select 'Update & Security,' and click 'Check for updates.' Follow the prompts to install any available updates."
+        },
+        {
+            "question": "How can I free up space on my hard drive?",
+            "answer": "To free up space on your hard drive, delete unnecessary files, uninstall unused programs, and use the Disk Cleanup tool to remove temporary files."
+        },
+        {
+            "question": "What should I do if my screen is frozen?",
+            "answer": "If your screen is frozen, try pressing Ctrl + Alt + Delete and selecting 'Task Manager.' You can force quit unresponsive programs from there."
+        },
+        {
+            "question": "How do I reset my computer to factory settings?",
+            "answer": "To reset your computer to factory settings, go to the Settings menu, select 'Update & Security,' choose 'Recovery,' and click 'Get started' under 'Reset this PC.'"
+        },
+        {
+            "question": "How can I back up my files?",
+            "answer": "To back up your files, use an external hard drive or cloud storage service. You can also use the built-in backup tools in your operating system."
+        },
+        {
+            "question": "How do I connect my computer to a Wi-Fi network?",
+            "answer": "To connect to a Wi-Fi network, click on the network icon in the taskbar, select your Wi-Fi network, and enter the password if prompted."
+        },
+        {
+            "question": "What should I do if I can't hear any sound?",
+            "answer": "If you can't hear any sound, check that your speakers or headphones are properly connected and that the volume is turned up. Also, make sure the correct audio output is selected in your system settings."
+        },
+        {
+            "question": "How do I install a new printer?",
+            "answer": "To install a new printer, connect the printer to your computer, then go to the Settings menu, select 'Devices,' and click 'Add a printer or scanner.' Follow the on-screen instructions."
+        },
+        {
+            "question": "How can I protect my computer from viruses?",
+            "answer": "To protect your computer from viruses, install antivirus software, keep your operating system and software up to date, and avoid downloading files or clicking on links from unknown sources."
+        },
+        {
+            "question": "What should I do if my computer won't turn on?",
+            "answer": "If your computer won't turn on, check that it's plugged in and that the power source is working. If it's a laptop, ensure the battery is charged. You may also need to hold the power button for 10-15 seconds to force a reboot."
+        },
+        {
+            "question": "How do I change my computer's wallpaper?",
+            "answer": "To change your computer's wallpaper, right-click on the desktop, select 'Personalize,' and choose a new background from the available options."
+        },
+        {
+            "question": "How can I increase my computer's performance?",
+            "answer": "To increase performance, consider upgrading your RAM, switching to an SSD, and ensuring your computer is free of malware. Regularly clean out unnecessary files and defragment your hard drive if applicable."
+        },
+        {
+            "question": "How do I create a new user account?",
+            "answer": "To create a new user account, go to the Settings menu, select 'Accounts,' click 'Family & other users,' and then 'Add someone else to this PC.' Follow the prompts to set up the new account."
+        },
+        {
+            "question": "What should I do if my computer is overheating?",
+            "answer": "If your computer is overheating, ensure it's in a well-ventilated area and that the fans are working properly. You may need to clean the vents and fans to remove dust buildup."
+        },
+        {
+            "question": "How can I recover a deleted file?",
+            "answer": "To recover a deleted file, check the Recycle Bin first. If it's not there, you may need to use a file recovery software or restore from a backup."
+        },
+        {
+            "question": "How do I change my computer's password?",
+            "answer": "To change your computer's password, go to the Settings menu, select 'Accounts,' and then 'Sign-in options.' Choose 'Password' and follow the prompts to change it."
+        },
+        {
+            "question": "What should I do if my internet is slow?",
+            "answer": "If your internet is slow, try restarting your router, disconnecting unused devices, and checking for any bandwidth-heavy applications running in the background."
+        },
+        {
+            "question": "How do I clear my browser's cache?",
+            "answer": "To clear your browser's cache, open your browser settings, find the 'Privacy and Security' section, and select 'Clear browsing data.' Choose the time range and data you want to clear."
+        },
+        {
+            "question": "How can I set up a dual monitor display?",
+            "answer": "To set up a dual monitor display, connect both monitors to your computer, then go to the Display settings in the Control Panel or Settings menu and select 'Extend these displays.'"
+        },
+        {
+            "question": "How do I update my computer's drivers?",
+            "answer": "To update your computer's drivers, go to the Device Manager, find the device you want to update, right-click, and select 'Update driver.' You can also visit the manufacturer's website for the latest drivers."
+        },
+        {
+            "question": "How can I secure my Wi-Fi network?",
+            "answer": "To secure your Wi-Fi network, set a strong password, enable WPA3 encryption, and consider hiding your network's SSID. Regularly update your router's firmware."
+        }
+    ]
+}

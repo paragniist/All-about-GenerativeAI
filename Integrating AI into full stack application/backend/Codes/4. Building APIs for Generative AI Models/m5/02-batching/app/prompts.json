@@ -1,0 +1,14 @@
+{
+    "prompts": [
+        "Explain the concept of a neural network in simple terms.",
+        "Describe the differences between supervised and unsupervised learning.",
+        "What are the key components of a generative adversarial network (GAN)?",
+        "How does transfer learning improve the performance of AI models?",
+        "What are the ethical considerations when using generative AI in content creation?",
+        "What is the role of activation functions in neural networks?",
+        "How do convolutional neural networks (CNNs) work?",
+        "What are the advantages of using recurrent neural networks (RNNs)?",
+        "Explain the concept of overfitting in machine learning.",
+        "What is the importance of data preprocessing in AI?"
+    ]
+}
